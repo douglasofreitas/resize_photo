@@ -1,11 +1,9 @@
-# ecommerce_api
-Ecommerce Case - API usgin Node.JS
+# resize_photos
+Get Photos from web and resize in server - API usgin Node.JS
 
 Main Modules:
-* Sequelize
-* Mysql
+* Mongoose
 * Express
-* Jsonfile
 * Nodemon
 * Supertest / Joi / Chai
 * Babel

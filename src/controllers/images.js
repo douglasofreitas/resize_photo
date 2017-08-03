@@ -101,6 +101,14 @@ class ImagesController {
 
   getAll() {
     return this.Image.find({})
+      .then(result => result.map((item) => {
+        return {
+          url: `${process.env.url_base_path}${item.url}`,
+          url_small: `${process.env.url_base_path}${item.url_small}`,
+          url_medium: `${process.env.url_base_path}${item.url_medium}`,
+          url_large: `${process.env.url_base_path}${item.url_large}`,
+        };
+      }))
       .then(result => defaultResponse(result))
       .catch(error => errorResponse(error.message));
   }
