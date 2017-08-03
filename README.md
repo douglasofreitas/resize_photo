@@ -17,3 +17,8 @@ Run Application:
 
 Run Tests: 
     npm test (integration, unit and contract)
+
+Using application:
+In browser, call a URL:
+    http://localhost:8081/books/resize - Get images from internet and resize
+    http://localhost:8081/books - Get images from database to user
