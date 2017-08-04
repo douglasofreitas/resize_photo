@@ -27,7 +27,7 @@ mongoose.connection.on('reconnected', () => {
 // If the connection throws an error
 mongoose.connection.on('error', () => {
   console.log('Mongoose default connection error: ');
-  setTimeout(() => { connectDatabase(); }, 1000);
+  setTimeout(() => { connectDatabase(); }, 5000);
 });
 
 // When the connection is disconnected
