@@ -1,12 +1,6 @@
 version: '2'
 
 services:
-  source:
-    image: busybox
-    container_name: 'resize_photo-src'
-    volumes:
-      - $PWD:/app/application
-
   database:
     image: mongo:latest
     container_name: 'resize_photo-db'
@@ -24,5 +18,3 @@ services:
       - SYS_ADMIN
     links:
       - database
-    volumes_from:
-      - source
