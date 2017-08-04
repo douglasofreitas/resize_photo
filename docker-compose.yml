@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  source:
+    image: busybox
+    container_name: 'resize_photo-src'
+    volumes:
+      - $PWD:/app/application
+
+  database:
+    image: mongo:latest
+    container_name: 'resize_photo-db'
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+
+  dev:
+    image: resize_photo-env
+    build: .
+    hostname: "dev"
+    working_dir: /app/application/
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    links:
+      - database
+    volumes_from:
+      - source
