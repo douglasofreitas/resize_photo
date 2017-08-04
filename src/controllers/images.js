@@ -101,14 +101,12 @@ class ImagesController {
 
   getAll() {
     return this.Image.find({})
-      .then(result => result.map((item) => {
-        return {
-          url: `${process.env.url_base_path}:${process.env.app_port}/${item.url}`,
-          url_small: `${process.env.url_base_path}:${process.env.app_port}/${item.url_small}`,
-          url_medium: `${process.env.url_base_path}:${process.env.app_port}/${item.url_medium}`,
-          url_large: `${process.env.url_base_path}:${process.env.app_port}/${item.url_large}`,
-        };
-      }))
+      .then(result => result.map(item => ({
+        url: `${process.env.url_base_path}:${process.env.app_port}/${item.url}`,
+        url_small: `${process.env.url_base_path}:${process.env.app_port}/${item.url_small}`,
+        url_medium: `${process.env.url_base_path}:${process.env.app_port}/${item.url_medium}`,
+        url_large: `${process.env.url_base_path}:${process.env.app_port}/${item.url_large}`,
+      })))
       .then(result => defaultResponse(result))
       .catch(error => errorResponse(error.message));
   }

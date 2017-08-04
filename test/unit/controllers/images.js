@@ -4,7 +4,6 @@ import datasource from '../../../config/datasource';
 describe('Images: Controller', () => {
   describe('Route GET images: create()', () => {
     it('should create image in database', () => {
-
       const expectedResponse = [{
         url: 'http://domain.com/image.jpg',
         url_small: 'http://domain.com/image.jpg',
