@@ -1,10 +1,19 @@
 FROM node:7.7.3
 
-ENV HOME=/home/root
-COPY . $HOME/application
+RUN useradd --user-group --create-home --shell /bin/false app
 
-WORKDIR $HOME/application
-#RUN npm cache clean 
-RUN cd $HOME/application && npm install --silent --progress=false
+ENV HOME=/home/app
+
+COPY package.json $HOME/library/
+RUN chown -R app:app $HOME/*
+
+USER app
+WORKDIR $HOME/library
+RUN npm cache clean && npm install --silent --progress=false
+
+USER root
+COPY . $HOME/library
+RUN chown -R app:app $HOME/*
+USER app
 
 CMD ["/bin/bash"]

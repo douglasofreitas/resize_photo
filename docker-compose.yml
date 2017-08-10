@@ -9,7 +9,7 @@ services:
     image: resize_photo-env
     build: .
     hostname: "dev"
-    working_dir: /home/root/application/
+    working_dir: /home/app/library/
     cap_add:
       - NET_ADMIN
       - SYS_ADMIN
