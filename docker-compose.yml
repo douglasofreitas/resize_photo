@@ -4,6 +4,8 @@ services:
   database:
     image: mongo
     container_name: 'resize_photo-db'
+    volumes:
+      - './data:/data/db'
 
   dev:
     image: resize_photo-env
